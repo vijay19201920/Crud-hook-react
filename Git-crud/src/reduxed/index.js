@@ -1,32 +1,34 @@
 import React, { Component } from 'react';
+//https://levelup.gitconnected.com/react-crud-app-without-and-with-redux-da4cd87f2eab
+//https://reqres.in/
 
+import Store from '../store.js'
 
 class reduxed extends Component {
 constructor(){
 	super();
 
 		this.state = [
-            { name: 1, Email: "vijay", Created: "" },
-            { name: 2, Email: "Arun", Created: "" },
-            { name: 3, Email: "vinay", Created: "" }
-          ];
-         
-
-
+            { name: "vijay", Email: "vijayd@gmail.com", Created: "" },
+            { name:"Arun", Email: "Arun@gmail.com", Created: "" },
+          { name: "vinay", Email: "vinay@gmail.com", Created: "" }
+        ];
 }
 
 render() {
         return (
             <div>
+                  <p>{(this.state.map((a)=> a.name))}</p>
 
-        <p>{console.log(this.state)}</p>
+
                 <table>
                     <thead>
                         <tr>
+                            <th>Id</th>
                             <th>Name</th>
-                            <th>Email</th>
-                            <th>Created</th>
-                            <th>Actions</th>
+                            <th>Grade</th>
+                            <th>School</th>
+                          
                         </tr>
                     </thead>
                     <tbody>
