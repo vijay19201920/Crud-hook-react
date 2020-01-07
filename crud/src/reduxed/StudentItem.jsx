@@ -1,37 +1,57 @@
 import React, { Component } from 'react'; export default class StudentItem extends Component {
     constructor(props) {
         super(props);
-        this.state = { isEdit: false }
+        this.state = {
+            isEdit: false,
+            hello: ""
+        }
         this.editStudent = this.editStudent.bind(this);
         this.editStudentSubmit = this.editStudentSubmit.bind(this);
         this.deleteStudent = this.deleteStudent.bind(this);
-    } deleteStudent() {
+    }
+    deleteStudent() {
+        console.log('2')
         const { id } = this.props.student;
         this.props.deleteStudent(id);
-    } editStudent() {
+    }
+    editStudent() {
         this.setState((prevState, props) => ({
             isEdit: !prevState.isEdit
         }))
-    } editStudentSubmit() {
+    }
+    editStudentSubmit() {
+        
         const { id } = this.props.student;
         this.setState((prevState, props) => ({
-            isEdit: !prevState.isEdit
+            
+            isEdit: !prevState.isEdit,
+            hello: prevState
         }));
+
+        console.log(this.state.isEdit);
+        
+
         this.props.editStudentSubmit(
             id,
             this.nameInput.value,
             this.gradeInput.value,
             this.schoolInput.value
         );
-    } render() {
-        const { name, grade, school } = this.props.student; return (
+
+    }
+
+    render() {
+
+        const { name, grade, school } = this.props.student;
+
+        return (
             this.state.isEdit === true ? (
                 <tr className="bg-warning" key={this.props.index}>
                     <td>
                         <input ref={nameInput => this.nameInput = nameInput} defaultValue={name} />
                     </td>
                     <td>
-                        <input defaultValue={grade} ref={gradeInput => this.gradeInput = gradeInput} />
+                        <input  ref={gradeInput => this.gradeInput = gradeInput} defaultValue={grade} />
                     </td>
                     <td>
                         <input ref={schoolInput => this.schoolInput = schoolInput} defaultValue={school} />
@@ -40,7 +60,7 @@ import React, { Component } from 'react'; export default class StudentItem exten
                         <i className="far fa-save" onClick={this.editStudentSubmit}>save</i>
                     </td>
                     <td>
-                        <i className="fas fa-trash"></i>
+                        <i className="fas fa-trash">trash</i>
                     </td>
                 </tr>
             ) : (

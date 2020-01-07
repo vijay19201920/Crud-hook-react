@@ -12,6 +12,8 @@ export default class StudentList extends Component {
         editStudentSubmit={this.props.editStudentSubmit}      
         deleteStudent={this.props.deleteStudent}
       />
-    ));    return <tbody>{trItem}</tbody>;
+    ));    
+    
+    return <tbody>{trItem}</tbody>;
   }
 }

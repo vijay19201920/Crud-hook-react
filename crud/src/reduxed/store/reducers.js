@@ -9,6 +9,7 @@ const studentReducer = (state = [], action) => {
 
         case 'DELETE_STUDENT':
             stateCopy = state.filter(x => x.id !== action.payload);
+            console.log('1')
             localStorage.setItem('students', JSON.stringify(stateCopy));
             return stateCopy
 

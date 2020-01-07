@@ -20,7 +20,9 @@ class index extends Component {
     }
 
     deleteStudent(id) {
+        console.log('3');
         let r = window.confirm("Do you want to delete this item");
+       
         if (r === true) {
             this.props.deleteStudent(id);
 
@@ -34,25 +36,37 @@ class index extends Component {
     render() {
         return (
             <div className="container-fluid">
-                <div className="row mt-3"><div className="col-lg-12">
-                    <div className="card">
-                        <div className="card-header">
-                            Student Registry
+                <div className="row mt-3">
+                    <div className="col-lg-12">
+                        <div className="card">
+                            <div className="card-header">
+                                Student Registry
   </div>
-                        <div className="card-body">
-                            <table className="table table-hover">
-                                <thead className="thead-dark"><tr><th>Name</th><th>Grade</th><th>School</th><th>Edit/Save</th><th>Delete</th></tr></thead>
-                                <StudentList deleteStudent={this.deleteStudent} studentList={this.props.studentList} editStudentSubmit={this.editStudentSubmit} />
-                            </table>
-                            <button className="btn btn-dark pull-left" onClick={this.addNewStudent}>Add New</button>
-                        </div></div>
-                </div></div></div>
+                            <div className="card-body">
+                                <table className="table table-hover">
+                                    <thead className="thead-dark">
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Grade</th>
+                                            <th>School</th>
+                                            <th>Edit/Save</th>
+                                            <th>Delete</th>
+                                        </tr>
+                                    </thead>
+                                    <StudentList deleteStudent={this.deleteStudent} studentList={this.props.studentList} editStudentSubmit={this.editStudentSubmit} />
+                                </table>
+                                <button className="btn btn-dark pull-left" onClick={this.addNewStudent}>Add New</button>
+                            </div></div>
+                         </div>
+                    </div>
+            </div>
         );
     }
 }
 
 const mapStateToProps = (state) => {
-    return {
+    
+ return {
         studentList: state
     }
 }
